@@ -532,7 +532,7 @@ def c_frechet(np.ndarray[np.float64_t,ndim=2] P,np.ndarray[np.float64_t,ndim=2] 
     cc=_compute_critical_values(P,Q,p,q)
     eps=cc[0]
     while(len(cc)!=1):
-        m_i=len(cc)/2-1
+        m_i=len(cc)//2-1
         eps = cc[m_i]
         rep = _decision_problem(P,Q,p,q,eps)
         if rep:
