@@ -1,6 +1,7 @@
 from setuptools import setup
 from distutils.extension import Extension
 from Cython.Distutils import build_ext
+from Cython.Build import cythonize
 import numpy
 
 ext_modules = [Extension("traj_dist.cydist.basic_geographical", ["traj_dist/cydist/basic_geographical.pyx"]),
@@ -23,7 +24,7 @@ setup(
     author="Brendan Guillouet",
     author_email="brendan.guillouet@gmail.com",
     cmdclass={'build_ext': build_ext},
-    ext_modules=ext_modules,
+    ext_modules=cythonize(ext_modules, language_level=3),
     include_dirs=[numpy.get_include()],
     install_requires=["numpy>=1.14.0", "Cython>=0.27.3", "Shapely>=1.6.4", "geohash2==1.1", 'pandas>=0.20.3',
                       'scipy>=0.19.1'],
