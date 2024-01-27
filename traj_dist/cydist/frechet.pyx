@@ -7,7 +7,7 @@ import numpy as np
 from cpython cimport bool
 
 
-from basic_euclidean import c_circle_line_intersection,c_point_to_seg,c_eucl_dist
+from .basic_euclidean import c_circle_line_intersection,c_point_to_seg,c_eucl_dist
 
 
 cdef np.ndarray[np.float64_t,ndim=1] _free_line(double px, double py, double eps, double s1x, double s1y, double
